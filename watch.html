@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,
+		initial-scale=1.0" />
+
+    <title>Digital Clock</title>
+
+    <style>
+        #Digitalclock {
+        	font-size: 175px;
+            
+        	
+        }
+        body{
+            background-image: url('https://images.unsplash.com/photo-1684216116726-a6d0cea8e93f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Digitalclock"></div>
+
+    <script>
+        setInterval(Time, 1000);
+        function Time() {
+        	let time = new Date();
+        	let hour = time.getHours();
+        	let min = time.getMinutes();
+        	let sec = time.getSeconds();
+        	am_pm = "AM";
+        
+        	if (hour > 12) {
+        		hour -= 12;
+        		am_pm = "PM";
+        	}
+        	if (hour == 0) {
+        		hour = 12;
+        		am_pm = "AM";
+        	}
+        
+        
+        	let currentTime = hour + ":"
+        		+ min + ":" + sec + am_pm;
+        
+        	document.getElementById("Digitalclock")
+        		.innerHTML = currentTime;
+        }
+        
+        Time();
+    </script>
+</body>
+
+</html>
